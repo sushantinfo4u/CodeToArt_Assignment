@@ -4,11 +4,13 @@ import android.os.Parcelable;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.stream.Stream;
 
-public class MovieResponse extends ArrayList<Parcelable> {
+public class MovieResponse implements Serializable {
 
+    @SerializedName("backdrop_path")private String backdrop_path;
     @SerializedName("vote_count")private String vote_count;
     @SerializedName("id")private String id;
     @SerializedName("video")private String video;
@@ -21,6 +23,14 @@ public class MovieResponse extends ArrayList<Parcelable> {
     @SerializedName("adult")private String adult;
     @SerializedName("overview")private String overview;
     @SerializedName("release_date")private String release_date;
+
+    public String getBackdrop_path() {
+        return backdrop_path;
+    }
+
+    public void setBackdrop_path(String backdrop_path) {
+        this.backdrop_path = backdrop_path;
+    }
 
     public String getVote_count() {
         return vote_count;
@@ -118,8 +128,4 @@ public class MovieResponse extends ArrayList<Parcelable> {
         this.release_date = release_date;
     }
 
-    @Override
-    public Stream<Parcelable> stream() {
-        return null;
-    }
 }

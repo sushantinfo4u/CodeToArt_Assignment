@@ -2,6 +2,7 @@ package sushant.com.codetoart_assignment.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
+import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,7 +12,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import com.squareup.picasso.Picasso;
 import java.util.ArrayList;
-
 import sushant.com.codetoart_assignment.Activity.MoviesDetailsActivity;
 import sushant.com.codetoart_assignment.ApiCall.MovieResponse;
 import sushant.com.codetoart_assignment.R;
@@ -44,14 +44,15 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             @Override
             public void onClick(View view) {
                 Intent intent=new Intent(context, MoviesDetailsActivity.class);
-                intent.putExtra("list",movieData);
+                intent.putExtra("list",  movieData);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(intent);
             }
         });
 
         holder.txtMovieName.setText(movieData.getTitle());
         holder.txtReleaseDate.setText(movieData.getRelease_date());
-        Picasso.with(context).load(movieData.getPoster_path()).into(holder.imgPoster);
+        Picasso.with(context).load(movieData.getBackdrop_path()).into(holder.imgPoster);
     }
     @Override
     public int getItemCount() {
@@ -59,9 +60,7 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
-
         private RelativeLayout mainLayout;
-
         private ImageView imgPoster;
         private TextView txtMovieName,txtReleaseDate,txtAdult;
         public ViewHolder(View itemView) {

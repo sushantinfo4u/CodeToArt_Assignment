@@ -19,13 +19,11 @@ import sushant.com.codetoart_assignment.R;
 
 public class MoviesDetailsActivity extends AppCompatActivity {
 
-
     @BindView(R.id.imgPoster)  ImageView imgPoster;
     @BindView(R.id.txtTitle)  TextView txtTitle;
     @BindView(R.id.txtOverView)  TextView txtOverView;
     @BindView(R.id.ratingBar)  RatingBar ratingBar;
     private MovieResponse movieResponse;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
