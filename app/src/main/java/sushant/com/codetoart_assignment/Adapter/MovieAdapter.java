@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Parcelable;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -50,9 +51,13 @@ public class MovieAdapter extends RecyclerView.Adapter<MovieAdapter.ViewHolder>{
             }
         });
 
-        holder.txtMovieName.setText(movieData.getTitle());
+        String[] movieTitle=movieData.getTitle().split(" ");
+        holder.txtMovieName.setText(movieTitle[0]);
         holder.txtReleaseDate.setText(movieData.getRelease_date());
-        Picasso.with(context).load(movieData.getBackdrop_path()).into(holder.imgPoster);
+
+        String baseImageUrl="https://image.tmdb.org/t/p/w500"+movieData.getPoster_path();
+        Picasso.with(context).load(baseImageUrl).into(holder.imgPoster);
+//        Picasso.with(context).load("tCBxnZwLiY1BOKw3tH6AxHZdqPh.jpg").into(holder.imgPoster);
     }
     @Override
     public int getItemCount() {

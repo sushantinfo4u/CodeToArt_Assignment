@@ -1,4 +1,8 @@
 <resources>
     <string name="app_name">CodeToArt_Assignment</string>
     <string name="title">Title</string>
+    <string name="info">Code To Art</string>
+    <string name="sushant">Developed By Sushant Suryawanshi</string>
+    <string name="moviedetails">Movies Details</string>
+    <string name="movielist">Movies List</string>
 </resources>

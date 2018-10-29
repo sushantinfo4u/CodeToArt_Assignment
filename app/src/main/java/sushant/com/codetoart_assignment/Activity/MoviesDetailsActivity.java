@@ -28,14 +28,18 @@ public class MoviesDetailsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movies_details);
+        getSupportActionBar().setTitle(getString(R.string.moviedetails));
         ButterKnife.bind(this);
         Intent intent=getIntent();
         if (intent!=null){
             movieResponse= (MovieResponse) intent.getSerializableExtra("list");
-             Picasso.with(getApplicationContext()).load(movieResponse.getPoster_path()).into(imgPoster);
+            String baseImageUrl="https://image.tmdb.org/t/p/w500"+movieResponse.getPoster_path();
+            Picasso.with(getApplicationContext()).load(baseImageUrl).into(imgPoster);
+//                Picasso.with(getApplicationContext()).load(movieResponse.getPoster_path()).into(imgPoster);
              txtTitle.setText("Title :"+movieResponse.getTitle());
              txtOverView.setText("OverView :"+movieResponse.getOverview());
-             ratingBar.setRating(Float.parseFloat(movieResponse.getVote_average()));
+            ratingBar.setNumStars(8);
+            ratingBar.setRating(Float.parseFloat(movieResponse.getVote_average()));
         }
     }
 }

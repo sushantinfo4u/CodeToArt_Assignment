@@ -20,13 +20,15 @@
 
             <ImageView
                 android:layout_alignParentLeft="true"
-                android:scaleType="center"
+                android:scaleType="fitXY"
                 android:id="@+id/imgPoster"
                 android:layout_width="100dp"
                 android:layout_height="80dp"
-                android:src="@drawable/ic_launcher_background"/>
+                android:src="@mipmap/ic_user"/>
 
             <TextView
+
+                android:paddingStart="20dp"
                 android:layout_centerVertical="true"
                 android:layout_centerHorizontal="true"
                 android:id="@+id/txtMovieName"
@@ -34,9 +36,11 @@
                 android:layout_height="wrap_content"
                 android:text="MOVIE NAME"
                 android:textSize="20dp"
-                android:textStyle="bold"/>
+                android:textStyle="bold"
+                android:paddingLeft="20dp" />
 
             <TextView
+                android:paddingStart="20dp"
                 android:id="@+id/txtReleaseDate"
                 android:gravity="center"
                 android:textSize="10dp"
@@ -44,7 +48,8 @@
                 android:text="12/10/2018"
                 android:layout_alignParentBottom="true"
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" />
+                android:layout_height="wrap_content"
+                android:paddingLeft="20dp" />
 
             <TextView
                 android:id="@+id/txtAdult"
